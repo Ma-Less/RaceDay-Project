@@ -75,3 +75,12 @@ INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role, DateOfBirth)
 VALUES
     ('Theo', 'Modise', 'theo.modise@raceday.co.za', @DummyHash, 'Organiser', '1985-06-15'),
     ('Lindiwe', 'Nkosi', 'lindiwe.nkosi@raceday.co.za', @DummyHash, 'Organiser', '1990-11-02');
+
+ -- Insert Participants
+DECLARE @DummyHash NVARCHAR(255) = 'AF23...DummyHash...';
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role, DateOfBirth)
+VALUES
+    ('Sipho', 'Mthembu', 'sipho.runner@gmail.com', @DummyHash, 'Participant', '1995-03-20'),
+    ('Zanele', 'Petersen', 'zanele.cycle@yahoo.com', @DummyHash, 'Participant', '1988-07-10'),
+    ('Thabo', 'Botha', 'thabo.walker@outlook.com', @DummyHash, 'Participant', '2000-12-05');
+
