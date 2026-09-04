@@ -84,3 +84,9 @@ VALUES
     ('Zanele', 'Petersen', 'zanele.cycle@yahoo.com', @DummyHash, 'Participant', '1988-07-10'),
     ('Thabo', 'Botha', 'thabo.walker@outlook.com', @DummyHash, 'Participant', '2000-12-05');
 
+    -- Insert Events
+INSERT INTO Events (Name, Description, Date, Location, Distance, EventType, CreatedByUserID)
+VALUES
+    ('Soweto Marathon 2026', 'The iconic 42.2km and 21.1km road race through the streets of Soweto.', '2026-11-15 06:00:00', 'Soweto, Johannesburg', '42.2km', 'Run', (SELECT UserID FROM Users WHERE Email = 'theo.modise@raceday.co.za')),
+    ('Cape Town Cycle Tour 2026', 'The world''s largest timed cycling event, a stunning 109km route around the Cape Peninsula.', '2026-03-08 07:00:00', 'Cape Town', '109km', 'Cycle', (SELECT UserID FROM Users WHERE Email = 'lindiwe.nkosi@raceday.co.za')),
+    ('Durban City Walk 2026', 'A scenic 10km walk along the Durban beachfront and through the city center.', '2026-09-20 08:00:00', 'Durban', '10km', 'Walk', (SELECT UserID FROM Users WHERE Email = 'theo.modise@raceday.co.za'));
