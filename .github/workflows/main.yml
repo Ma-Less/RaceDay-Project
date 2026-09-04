@@ -16,8 +16,8 @@ jobs:
     - name: Check for required documentation files
       run: |
         required_files=(
-          "docs/RaceDay_ERD.png"
-          "docs/API_Endpoint_Plan.md"
+          "docs/RaceDay_ERD.pdf"
+          "docs/API_Endpoint_Plan.pdf"
           "docs/RaceDay_Database.sql"
           "README.md"
         )
