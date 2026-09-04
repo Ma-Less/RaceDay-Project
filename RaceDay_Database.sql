@@ -111,3 +111,26 @@ DECLARE @DurbanEventID INT = (SELECT EventID FROM Events WHERE Name = 'Durban Ci
 INSERT INTO Categories (EventID, Name, Description) VALUES
     (@DurbanEventID, '10km Walk', 'The main 10km walking event'),
     (@DurbanEventID, '5km Fun Walk', 'A shorter, family-friendly 5km walking route');
+
+    -- Insert Sample Enrolments
+INSERT INTO Enrolments (ParticipantUserID, EventID, CategoryID, Status)
+VALUES
+    ((SELECT UserID FROM Users WHERE Email = 'sipho.runner@gmail.com'),
+     (SELECT EventID FROM Events WHERE Name = 'Soweto Marathon 2026'),
+     (SELECT CategoryID FROM Categories WHERE Name = '42.2km Open' AND EventID = (SELECT EventID FROM Events WHERE Name = 'Soweto Marathon 2026')),
+     'Confirmed'),
+   
+    ((SELECT UserID FROM Users WHERE Email = 'zanele.cycle@yahoo.com'),
+     (SELECT EventID FROM Events WHERE Name = 'Cape Town Cycle Tour 2026'),
+     (SELECT CategoryID FROM Categories WHERE Name = '109km Open' AND EventID = (SELECT EventID FROM Events WHERE Name = 'Cape Town Cycle Tour 2026')),
+     'Confirmed'),
+   
+    ((SELECT UserID FROM Users WHERE Email = 'thabo.walker@outlook.com'),
+     (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026'),
+     (SELECT CategoryID FROM Categories WHERE Name = '10km Walk' AND EventID = (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026')),
+     'Pending'),
+
+    ((SELECT UserID FROM Users WHERE Email = 'sipho.runner@gmail.com'),
+     (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026'),
+     (SELECT CategoryID FROM Categories WHERE Name = '5km Fun Walk' AND EventID = (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026')),
+     'Confirmed');
