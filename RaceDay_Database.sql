@@ -68,3 +68,10 @@ CREATE TABLE EventImages (
     UploadedDate DATETIME NOT NULL DEFAULT GETDATE(),
     CONSTRAINT FK_EventImages_Events FOREIGN KEY (EventID) REFERENCES Events(EventID) ON DELETE CASCADE
 );
+
+-- Insert Organisers
+DECLARE @DummyHash NVARCHAR(255) = 'AF23...DummyHash...';
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash, Role, DateOfBirth)
+VALUES
+    ('Theo', 'Modise', 'theo.modise@raceday.co.za', @DummyHash, 'Organiser', '1985-06-15'),
+    ('Lindiwe', 'Nkosi', 'lindiwe.nkosi@raceday.co.za', @DummyHash, 'Organiser', '1990-11-02');
