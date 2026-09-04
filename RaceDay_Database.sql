@@ -157,3 +157,10 @@ DECLARE @ZaneleCycleEnrolmentID INT = (
 INSERT INTO Results (EnrolmentID, FinishTime, FinishPosition)
 VALUES
     (@ZaneleCycleEnrolmentID, '02:58:30', 157);
+
+
+-- Insert Event Images
+INSERT INTO EventImages (EventID, ImageURL, IsBanner) VALUES
+    ((SELECT EventID FROM Events WHERE Name = 'Soweto Marathon 2026'), 'https://racewaydemo.blob.core.windows.net/eventimages/soweto-marathon-banner.jpg', 1),
+    ((SELECT EventID FROM Events WHERE Name = 'Cape Town Cycle Tour 2026'), 'https://racewaydemo.blob.core.windows.net/eventimages/cycle-tour-banner.jpg', 1),
+    ((SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026'), 'https://racewaydemo.blob.core.windows.net/eventimages/durban-walk-banner.jpg', 1);
