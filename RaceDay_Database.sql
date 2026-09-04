@@ -134,3 +134,26 @@ VALUES
      (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026'),
      (SELECT CategoryID FROM Categories WHERE Name = '5km Fun Walk' AND EventID = (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026')),
      'Confirmed');
+
+     -- Insert Sample Results
+DECLARE @SiphoSowetoEnrolmentID INT = (
+    SELECT EnrolmentID
+    FROM Enrolments
+    WHERE ParticipantUserID = (SELECT UserID FROM Users WHERE Email = 'sipho.runner@gmail.com')
+    AND EventID = (SELECT EventID FROM Events WHERE Name = 'Soweto Marathon 2026')
+);
+
+INSERT INTO Results (EnrolmentID, FinishTime, FinishPosition)
+VALUES
+    (@SiphoSowetoEnrolmentID, '03:45:12', 42);
+
+DECLARE @ZaneleCycleEnrolmentID INT = (
+    SELECT EnrolmentID
+    FROM Enrolments
+    WHERE ParticipantUserID = (SELECT UserID FROM Users WHERE Email = 'zanele.cycle@yahoo.com')
+    AND EventID = (SELECT EventID FROM Events WHERE Name = 'Cape Town Cycle Tour 2026')
+);
+
+INSERT INTO Results (EnrolmentID, FinishTime, FinishPosition)
+VALUES
+    (@ZaneleCycleEnrolmentID, '02:58:30', 157);
