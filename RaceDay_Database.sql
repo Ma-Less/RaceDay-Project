@@ -105,3 +105,9 @@ INSERT INTO Categories (EventID, Name, Description) VALUES
     (@CTCycleEventID, '109km Elite', 'Elite category with a competitive start group'),
     (@CTCycleEventID, '109km Open', 'Open category for cyclists of all abilities'),
     (@CTCycleEventID, '109km Tandem', 'Category for tandem bicycle teams');
+
+    -- Insert Categories for Durban City Walk
+DECLARE @DurbanEventID INT = (SELECT EventID FROM Events WHERE Name = 'Durban City Walk 2026');
+INSERT INTO Categories (EventID, Name, Description) VALUES
+    (@DurbanEventID, '10km Walk', 'The main 10km walking event'),
+    (@DurbanEventID, '5km Fun Walk', 'A shorter, family-friendly 5km walking route');
