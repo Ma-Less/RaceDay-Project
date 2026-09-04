@@ -37,3 +37,16 @@ CREATE TABLE Categories (
     Description NVARCHAR(255) NULL,
     CONSTRAINT FK_Categories_Events FOREIGN KEY (EventID) REFERENCES Events(EventID) ON DELETE CASCADE
 );
+
+CREATE TABLE Enrolments (
+    EnrolmentID INT IDENTITY(1,1) PRIMARY KEY,
+    ParticipantUserID INT NOT NULL,
+    EventID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    EnrolmentDate DATETIME NOT NULL DEFAULT GETDATE(),
+    Status NVARCHAR(20) NOT NULL DEFAULT 'Pending' CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
+    CONSTRAINT FK_Enrolments_Users FOREIGN KEY (ParticipantUserID) REFERENCES Users(UserID),
+    CONSTRAINT FK_Enrolments_Events FOREIGN KEY (EventID) REFERENCES Events(EventID),
+    CONSTRAINT FK_Enrolments_Categories FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
+    CONSTRAINT UQ_Enrolment_Participant_Event UNIQUE (ParticipantUserID, EventID)
+);
