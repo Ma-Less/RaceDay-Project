@@ -90,3 +90,11 @@ VALUES
     ('Soweto Marathon 2026', 'The iconic 42.2km and 21.1km road race through the streets of Soweto.', '2026-11-15 06:00:00', 'Soweto, Johannesburg', '42.2km', 'Run', (SELECT UserID FROM Users WHERE Email = 'theo.modise@raceday.co.za')),
     ('Cape Town Cycle Tour 2026', 'The world''s largest timed cycling event, a stunning 109km route around the Cape Peninsula.', '2026-03-08 07:00:00', 'Cape Town', '109km', 'Cycle', (SELECT UserID FROM Users WHERE Email = 'lindiwe.nkosi@raceday.co.za')),
     ('Durban City Walk 2026', 'A scenic 10km walk along the Durban beachfront and through the city center.', '2026-09-20 08:00:00', 'Durban', '10km', 'Walk', (SELECT UserID FROM Users WHERE Email = 'theo.modise@raceday.co.za'));
+
+    -- Insert Categories for Soweto Marathon
+DECLARE @SowetoEventID INT = (SELECT EventID FROM Events WHERE Name = 'Soweto Marathon 2026');
+INSERT INTO Categories (EventID, Name, Description) VALUES
+    (@SowetoEventID, '42.2km Open', 'Full marathon for participants of all ages (16+)'),
+    (@SowetoEventID, '21.1km Open', 'Half marathon for participants of all ages (16+)'),
+    (@SowetoEventID, '42.2km Junior', 'Full marathon for participants aged 18-25'),
+    (@SowetoEventID, '42.2km Veteran', 'Full marathon for participants aged 50+');
