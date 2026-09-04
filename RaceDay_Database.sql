@@ -98,3 +98,10 @@ INSERT INTO Categories (EventID, Name, Description) VALUES
     (@SowetoEventID, '21.1km Open', 'Half marathon for participants of all ages (16+)'),
     (@SowetoEventID, '42.2km Junior', 'Full marathon for participants aged 18-25'),
     (@SowetoEventID, '42.2km Veteran', 'Full marathon for participants aged 50+');
+
+    -- Insert Categories for Cape Town Cycle Tour
+DECLARE @CTCycleEventID INT = (SELECT EventID FROM Events WHERE Name = 'Cape Town Cycle Tour 2026');
+INSERT INTO Categories (EventID, Name, Description) VALUES
+    (@CTCycleEventID, '109km Elite', 'Elite category with a competitive start group'),
+    (@CTCycleEventID, '109km Open', 'Open category for cyclists of all abilities'),
+    (@CTCycleEventID, '109km Tandem', 'Category for tandem bicycle teams');
