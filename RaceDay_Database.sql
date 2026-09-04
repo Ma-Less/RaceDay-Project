@@ -50,3 +50,21 @@ CREATE TABLE Enrolments (
     CONSTRAINT FK_Enrolments_Categories FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
     CONSTRAINT UQ_Enrolment_Participant_Event UNIQUE (ParticipantUserID, EventID)
 );
+
+CREATE TABLE Results (
+    ResultID INT IDENTITY(1,1) PRIMARY KEY,
+    EnrolmentID INT NOT NULL UNIQUE,
+    FinishTime TIME(0) NOT NULL,
+    FinishPosition INT NOT NULL,
+    DateCaptured DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_Results_Enrolments FOREIGN KEY (EnrolmentID) REFERENCES Enrolments(EnrolmentID)
+);
+
+CREATE TABLE EventImages (
+    ImageID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    ImageURL NVARCHAR(500) NOT NULL,
+    IsBanner BIT NOT NULL DEFAULT 0,
+    UploadedDate DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_EventImages_Events FOREIGN KEY (EventID) REFERENCES Events(EventID) ON DELETE CASCADE
+);
