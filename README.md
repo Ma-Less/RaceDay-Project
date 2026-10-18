@@ -19,3 +19,7 @@ The system defines two primary user roles to manage access and functionality:
     - Browse a list of upcoming events.
     - Enter an event by selecting a category.
     - View their personal history of enrolled events and official results.
+
+Part 2 - API & CI/CD
+CI/CD Status: The API builds and all 6 unit tests pass successfully on GitHub Actions. (See Actions tab for the green checkmark).
+Part 2 Screenshot in the FOLDER.
