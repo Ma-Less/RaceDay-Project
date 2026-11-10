@@ -33,3 +33,11 @@ API Endpoints & Swagger: I developed full CRUD functionality across controllers 
 Unit Testing: I wrote 6 comprehensive unit tests using xUnit and EF Core InMemory. These tests verify successful operations (like registering and enrolling), failure scenarios (like duplicate emails), database persistence, and crucially, that role restrictions correctly block unauthorized users.
 CI/CD Pipeline: I configured a GitHub Actions workflow (ci-part2.yml) that automatically builds the solution and runs all my unit tests in the cloud on every push to the main branch, ensuring the code remains stable.
 
+## Docker Instructions
+
+To build and run the MVC application in Docker, follow these steps:
+
+1. Ensure your `RaceDay.API` project is currently running on your local machine so the container can communicate with it.
+2. Open a terminal and navigate to the `RaceDay.MVC` folder:
+   ```bash
+   cd RaceDay/RaceDay.MVC
